@@ -8,7 +8,10 @@ var noOfOvers = document.getElementById('noOfOvers');
 
 var totalScore = 0 ;
 var fallOfWicket = 0;
+var ballsRemaining = 0;
 var wicketsAvailable;
+var oversAvailable;
+var ballsAvailable;
 
 var playerScore =[];
 console.log(playerScore);
@@ -24,22 +27,22 @@ var gameFormat = function(){
     console.log(playerSelection);
     wicketsAvailable = noOfWickets.options[noOfWickets.selectedIndex].value;
     console.log(wicketsAvailable);
-    var oversAvailable = noOfOvers.options[noOfOvers.selectedIndex].value;
+    oversAvailable = noOfOvers.options[noOfOvers.selectedIndex].value;
     console.log(oversAvailable);
 
     gamePlay();
+
 }
 
 
-
-
-
 var gamePlay = function(){
+    ballsAvailable = oversAvailable * 6
     var playStroke = function(){
     var score = stroke[Math.floor(Math.random()*stroke.length)];
     if( score !== "OUT" && score !== "Wide"){
         parseInt(score);
         totalScore += score;
+        ballsRemaining ++;
         playerScore.push(score);
         document.getElementById('score-display').innerText = score;
         console.log(score);
@@ -47,18 +50,21 @@ var gamePlay = function(){
     }if (score === "Wide") {
         score = 1;
         totalScore += score;
+        ballsRemaining ++;
         playerScore.push(score);
         console.log("Wide");
     }if (score === "OUT") {
         fallOfWicket++;
         document.getElementById('score-display').innerText = "OUT";
         console.log("OUT");
-        console.log(fallenWickets);
-    }if (fallOfWicket == wicketsAvailable){
+        ballsRemaining ++;
+        console.log(fallOfWicket);
+    }if (fallOfWicket == wicketsAvailable || ballsRemaining == ballsAvailable){
         document.getElementById('stroke').disabled = true;
         document.getElementById('loft').disabled = true;
+
     }
-    document.getElementById('score-board').innerText = totalScore + "/" + fallOfWicket
+    document.getElementById('score-board').innerText = totalScore + "/" + fallOfWicket + " balls left:" +  (ballsAvailable - ballsRemaining);
 }
 
     var playLoft = function(){
@@ -66,6 +72,7 @@ var gamePlay = function(){
     if( score !== "OUT" && score !== "Wide"){
         parseInt(score);
         totalScore += score;
+        ballsRemaining ++;
         playerScore.push(score);
         document.getElementById('score-display').innerText = score;
         console.log(score);
@@ -73,18 +80,20 @@ var gamePlay = function(){
     }if (score === "Wide") {
         score = 1;
         totalScore += score;
+        ballsRemaining ++;
         playerScore.push(score);
         console.log("Wide");
     }if (score === "OUT") {
         fallOfWicket++;
+        ballsRemaining ++;
         document.getElementById('score-display').innerText = "OUT";
         console.log("OUT")
         console.log(fallOfWicket);
-    }if (fallOfWicket == wicketsAvailable){
+    }if (fallOfWicket == wicketsAvailable || ballsRemaining == ballsAvailable){
         document.getElementById('stroke').disabled = true;
         document.getElementById('loft').disabled = true;
     }
-        document.getElementById('score-board').innerText = totalScore + "/" + fallOfWicket
+        document.getElementById('score-board').innerText = totalScore + "/" + fallOfWicket + " balls left:" +  (ballsAvailable - ballsRemaining);
 }
 
 document.getElementById('stroke').addEventListener('click', playStroke);
