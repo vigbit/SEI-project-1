@@ -11,28 +11,30 @@
 <body>
 
     <div>
-        <select id="noOfPlayers">
-            <option>Select number of Players</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-        </select>
         <select id="noOfWickets">
             <option>Select number of wickets</option>
-            <option value="3">3</option>
-            <option value="5">5</option>
-            <option value="10">10</option>
+            <option>3</option>
+            <option>5</option>
+            <option>10</option>
         </select>
         <select id="noOfOvers">
             <option>Select number of overs</option>
-            <option value="3">3</option>
-            <option value="5">5</option>
-            <option value="10">10</option>
-            <option value="20">20</option>
-            <option value="30">30</option>
+            <option>3</option>
+            <option>5</option>
+            <option>10</option>
+            <option>20</option>
+            <option>30</option>
         </select>
         <button id="selection-ok">Ok</button>
     </div>
     <div>
+        <label for="playerOne"> player Name: </label>
+        <input type="text" id="playerOne" name="playerOne"><br><br>
+        <input type="submit" value="submit">
+    </div>
+
+    <div>
+        <h1 id="target-score"></h1>
         <h1 id="score-display">SCORE</h1>
         <h2 id="score-board"></h2>
     </div>
