@@ -1,3 +1,57 @@
+body {
+	width: 900px;
+	margin: 0 auto;
+	font-family: 'Open Sans', sans-serif;
+	text-align: center;
+
+}
+
+header{
+	font-size: 30px;
+	height: 20px;
+
+}
+
+
+#selection-form {
+	display: block;
+	padding: 20px;
+	margin: 20px;
+}
+
+
+.container {
+display: block;
+margin-top: 30px;
+background-color: #8AC9FF;
+padding: 10px;
+border: 20px;
+}
+
+.instructions{
+	display: inline-block;
+	box-sizing: border-box;
+	width: 40%;
+	height: 600px;
+	float: left;
+	padding: 20px;
+
+}
+
 #score-display {
 	font-size: 50px;
+	font-style: 300;
+}
+
+#score-board {
+	font-size: 30px;
+	font-style: 300;
+}
+
+.game-area {
+	display: inline-block;
+	box-sizing: border-box;
+	width : 50%;
+	height: 600px
+
 }

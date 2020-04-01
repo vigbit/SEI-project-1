@@ -16,7 +16,11 @@ var ballsAvailable;
 var playerScore = [];
 console.log(playerScore);
 
-var playerOne = document.getElementById('playerOne').innerText;
+
+var playerName = document.getElementById('playerOne').innerText;
+
+console.log(playerName);
+
 //var playerTwo = document.getElementById('playerTwo').innerText;;
 var currentPlayer = playerOne;
 var playerOneScore = 0;
@@ -32,6 +36,8 @@ var endGame = function(){
         alert ("You lose!");
     }
 }
+
+
 
 //Play the game until these things happen
 //Player runs out of selected number of wickets
@@ -101,7 +107,9 @@ var gamePlay = function(){
         endGame();
     }
 
-    document.getElementById('score-board').innerText = totalScore + "/" + fallOfWicket + " balls left:" +  (ballsAvailable - ballsRemaining);
+    document.getElementById('score-board').innerText = "Your current score is " +totalScore
+    document.getElementById('score-board2').innerText = "Wickets in hand " + fallOfWicket
+    document.getElementById('score-board3').innerText = "Remaining deliveries: " +  (ballsAvailable - ballsRemaining);
 }
 
 //Make it for every two wickets, the chances of losing wickets gets higher when you loft
@@ -135,13 +143,13 @@ var gamePlay = function(){
         endGame()
     }
 
-    document.getElementById('score-board').innerText = totalScore + "/" + fallOfWicket + " balls left:" +  (ballsAvailable - ballsRemaining);
-
+    document.getElementById('score-board').innerText = "Your current score is " +totalScore
+    document.getElementById('score-board2').innerText = "Wickets in hand " + fallOfWicket
+    document.getElementById('score-board3').innerText = "Remaining deliveries: " +  (ballsAvailable - ballsRemaining);
     }
 
 document.getElementById('stroke').addEventListener('click', playStroke);
 document.getElementById('loft').addEventListener('click', playLoft);
-
 
 }
 
